@@ -1,0 +1,39 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"margin":{"top":"0"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group" style="margin-top:0;padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
+	<!-- wp:paragraph {"className":"techscope-eyebrow techscope-eyebrow--signal"} -->
+	<p class="techscope-eyebrow techscope-eyebrow--signal">Error 404</p>
+	<!-- /wp:paragraph -->
+
+	<!-- wp:heading {"level":1} -->
+	<h1 class="wp-block-heading">This signal was lost</h1>
+	<!-- /wp:heading -->
+
+	<!-- wp:paragraph {"textColor":"muted"} -->
+	<p class="has-muted-color has-text-color">The page you asked for is not here. It may have been moved, unpublished, or never existed. Try a search, or start from the latest edition.</p>
+	<!-- /wp:paragraph -->
+
+	<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search TechScope","buttonText":"Search","buttonPosition":"button-outside","style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|50"}}}} /-->
+
+	<!-- wp:group {"className":"techscope-section-head","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
+	<div class="wp-block-group techscope-section-head" style="margin-bottom:var(--wp--preset--spacing--30)">
+		<!-- wp:heading {"level":2} -->
+		<h2 class="wp-block-heading">Latest stories</h2>
+		<!-- /wp:heading -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:query {"queryId":51,"query":{"perPage":4,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":false},"className":"techscope-list","layout":{"type":"default"}} -->
+	<div class="wp-block-query techscope-list">
+		<!-- wp:post-template -->
+			<!-- wp:post-terms {"term":"category","className":"techscope-badge"} /-->
+			<!-- wp:post-title {"level":3,"isLink":true} /-->
+			<!-- wp:post-date {"format":"j M Y"} /-->
+		<!-- /wp:post-template -->
+	</div>
+	<!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

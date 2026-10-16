@@ -1,0 +1,231 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"margin":{"top":"0"},"padding":{"top":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group" style="margin-top:0;padding-top:var(--wp--preset--spacing--40)">
+
+	<!-- wp:query {"queryId":1,"query":{"perPage":1,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":false},"className":"techscope-lead","align":"wide","layout":{"type":"default"}} -->
+	<div class="wp-block-query alignwide techscope-lead">
+		<!-- wp:post-template -->
+			<!-- wp:post-featured-image {"isLink":true,"sizeSlug":"techscope-lead","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} /-->
+
+			<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|50"}}}} -->
+			<div class="wp-block-columns">
+				<!-- wp:column {"width":"62%"} -->
+				<div class="wp-block-column" style="flex-basis:62%">
+					<!-- wp:post-terms {"term":"category","className":"techscope-badge","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} /-->
+					<!-- wp:post-title {"level":2,"isLink":true,"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|20"}}}} /-->
+				</div>
+				<!-- /wp:column -->
+
+				<!-- wp:column {"width":"38%"} -->
+				<div class="wp-block-column" style="flex-basis:38%">
+					<!-- wp:post-excerpt {"excerptLength":40,"showMoreOnNewLine":false,"style":{"typography":{"fontSize":"1.0625rem"}}} /-->
+
+					<!-- wp:group {"className":"techscope-meta","style":{"spacing":{"blockGap":"0.6rem"}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
+					<div class="wp-block-group techscope-meta">
+						<!-- wp:post-author-name {"isLink":true} /-->
+						<!-- wp:post-date {"format":"j M Y"} /-->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:column -->
+			</div>
+			<!-- /wp:columns -->
+		<!-- /wp:post-template -->
+	</div>
+	<!-- /wp:query -->
+
+	<!-- wp:separator {"align":"wide","className":"is-style-wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}}} -->
+	<hr class="wp-block-separator alignwide has-alpha-channel-opacity is-style-wide" style="margin-top:var(--wp--preset--spacing--40);margin-bottom:var(--wp--preset--spacing--40)"/>
+	<!-- /wp:separator -->
+
+	<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|50"}}}} -->
+	<div class="wp-block-columns alignwide">
+
+		<!-- wp:column {"width":"66%"} -->
+		<div class="wp-block-column" style="flex-basis:66%">
+			<!-- wp:query {"queryId":2,"query":{"perPage":2,"pages":0,"offset":1,"postType":"post","order":"desc","orderBy":"date","inherit":false},"className":"techscope-grid","layout":{"type":"default"}} -->
+			<div class="wp-block-query techscope-grid">
+				<!-- wp:post-template -->
+					<!-- wp:post-featured-image {"isLink":true,"sizeSlug":"techscope-card"} /-->
+					<!-- wp:post-terms {"term":"category","className":"techscope-badge"} /-->
+					<!-- wp:post-title {"level":2,"isLink":true} /-->
+					<!-- wp:post-excerpt {"excerptLength":24,"showMoreOnNewLine":false} /-->
+					<!-- wp:post-date {"format":"j M Y"} /-->
+				<!-- /wp:post-template -->
+			</div>
+			<!-- /wp:query -->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- wp:column {"width":"34%"} -->
+		<div class="wp-block-column" style="flex-basis:34%">
+			<!-- wp:group {"className":"techscope-section-head","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
+			<div class="wp-block-group techscope-section-head" style="margin-bottom:var(--wp--preset--spacing--30)">
+				<!-- wp:heading {"level":2} -->
+				<h2 class="wp-block-heading">On the wire</h2>
+				<!-- /wp:heading -->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:query {"queryId":3,"query":{"perPage":5,"pages":0,"offset":3,"postType":"post","order":"desc","orderBy":"date","inherit":false},"className":"techscope-list techscope-list--ranked","layout":{"type":"default"}} -->
+			<div class="wp-block-query techscope-list techscope-list--ranked">
+				<!-- wp:post-template -->
+					<!-- wp:post-title {"level":3,"isLink":true} /-->
+					<!-- wp:post-terms {"term":"category","className":"techscope-meta"} /-->
+				<!-- /wp:post-template -->
+			</div>
+			<!-- /wp:query -->
+		</div>
+		<!-- /wp:column -->
+
+	</div>
+	<!-- /wp:columns -->
+
+	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"layout":{"type":"default"}} -->
+	<div class="wp-block-group alignwide" style="margin-top:var(--wp--preset--spacing--60)">
+		<!-- wp:group {"className":"techscope-section-head","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
+		<div class="wp-block-group techscope-section-head" style="margin-bottom:var(--wp--preset--spacing--30)">
+			<!-- wp:heading {"level":2} -->
+			<h2 class="wp-block-heading">AI desk</h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:paragraph {"className":"techscope-section-head__link"} -->
+			<p class="techscope-section-head__link"><a href="/category/ai/">All AI coverage</a></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:query {"queryId":4,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","taxQuery":{"category":[2]},"inherit":false},"className":"techscope-grid","layout":{"type":"default"}} -->
+		<div class="wp-block-query techscope-grid">
+			<!-- wp:post-template -->
+				<!-- wp:post-featured-image {"isLink":true,"sizeSlug":"techscope-card"} /-->
+				<!-- wp:post-title {"level":3,"isLink":true} /-->
+				<!-- wp:post-excerpt {"excerptLength":20,"showMoreOnNewLine":false} /-->
+				<!-- wp:post-date {"format":"j M Y"} /-->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}},"layout":{"type":"default"}} -->
+	<div class="wp-block-group alignwide" style="margin-top:var(--wp--preset--spacing--50)">
+		<!-- wp:group {"className":"techscope-section-head","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
+		<div class="wp-block-group techscope-section-head" style="margin-bottom:var(--wp--preset--spacing--30)">
+			<!-- wp:heading {"level":2} -->
+			<h2 class="wp-block-heading">Hardware desk</h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:paragraph {"className":"techscope-section-head__link"} -->
+			<p class="techscope-section-head__link"><a href="/category/hardware/">All hardware coverage</a></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:query {"queryId":5,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","taxQuery":{"category":[3]},"inherit":false},"className":"techscope-grid","layout":{"type":"default"}} -->
+		<div class="wp-block-query techscope-grid">
+			<!-- wp:post-template -->
+				<!-- wp:post-featured-image {"isLink":true,"sizeSlug":"techscope-card"} /-->
+				<!-- wp:post-title {"level":3,"isLink":true} /-->
+				<!-- wp:post-excerpt {"excerptLength":20,"showMoreOnNewLine":false} /-->
+				<!-- wp:post-date {"format":"j M Y"} /-->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:pattern {"slug":"techscope/newsletter"} /-->
+
+	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"layout":{"type":"default"}} -->
+	<div class="wp-block-group alignwide" style="margin-top:var(--wp--preset--spacing--60)">
+		<!-- wp:group {"className":"techscope-section-head","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
+		<div class="wp-block-group techscope-section-head" style="margin-bottom:var(--wp--preset--spacing--30)">
+			<!-- wp:heading {"level":2} -->
+			<h2 class="wp-block-heading">Security desk</h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:paragraph {"className":"techscope-section-head__link"} -->
+			<p class="techscope-section-head__link"><a href="/category/security/">All security coverage</a></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:query {"queryId":6,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","taxQuery":{"category":[5]},"inherit":false},"className":"techscope-grid","layout":{"type":"default"}} -->
+		<div class="wp-block-query techscope-grid">
+			<!-- wp:post-template -->
+				<!-- wp:post-featured-image {"isLink":true,"sizeSlug":"techscope-card"} /-->
+				<!-- wp:post-title {"level":3,"isLink":true} /-->
+				<!-- wp:post-excerpt {"excerptLength":20,"showMoreOnNewLine":false} /-->
+				<!-- wp:post-date {"format":"j M Y"} /-->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}},"layout":{"type":"default"}} -->
+	<div class="wp-block-group alignwide" style="margin-top:var(--wp--preset--spacing--50)">
+		<!-- wp:group {"className":"techscope-section-head","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
+		<div class="wp-block-group techscope-section-head" style="margin-bottom:var(--wp--preset--spacing--30)">
+			<!-- wp:heading {"level":2} -->
+			<h2 class="wp-block-heading">Science &amp; policy</h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:paragraph {"className":"techscope-section-head__link"} -->
+			<p class="techscope-section-head__link"><a href="/category/science/">All science coverage</a></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:query {"queryId":7,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","taxQuery":{"category":[6,7]},"inherit":false},"className":"techscope-grid","layout":{"type":"default"}} -->
+		<div class="wp-block-query techscope-grid">
+			<!-- wp:post-template -->
+				<!-- wp:post-featured-image {"isLink":true,"sizeSlug":"techscope-card"} /-->
+				<!-- wp:post-terms {"term":"category","className":"techscope-badge"} /-->
+				<!-- wp:post-title {"level":3,"isLink":true} /-->
+				<!-- wp:post-excerpt {"excerptLength":20,"showMoreOnNewLine":false} /-->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"layout":{"type":"default"}} -->
+	<div class="wp-block-group alignwide" style="margin-top:var(--wp--preset--spacing--60)">
+		<!-- wp:group {"className":"techscope-section-head","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
+		<div class="wp-block-group techscope-section-head" style="margin-bottom:var(--wp--preset--spacing--30)">
+			<!-- wp:heading {"level":2} -->
+			<h2 class="wp-block-heading">The full file</h2>
+			<!-- /wp:heading -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:query {"queryId":8,"query":{"perPage":8,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":true},"className":"techscope-list","layout":{"type":"default"}} -->
+		<div class="wp-block-query techscope-list">
+			<!-- wp:post-template -->
+				<!-- wp:post-terms {"term":"category","className":"techscope-badge"} /-->
+				<!-- wp:post-title {"level":3,"isLink":true} /-->
+				<!-- wp:post-excerpt {"excerptLength":18,"showMoreOnNewLine":false} /-->
+				<!-- wp:post-date {"format":"j M Y"} /-->
+			<!-- /wp:post-template -->
+
+			<!-- wp:query-pagination {"paginationArrow":"arrow","style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"space-between"}} -->
+				<!-- wp:query-pagination-previous /-->
+				<!-- wp:query-pagination-numbers /-->
+				<!-- wp:query-pagination-next /-->
+			<!-- /wp:query-pagination -->
+
+			<!-- wp:query-no-results -->
+				<!-- wp:pattern {"slug":"techscope/no-results"} /-->
+			<!-- /wp:query-no-results -->
+		</div>
+		<!-- /wp:query -->
+	</div>
+	<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

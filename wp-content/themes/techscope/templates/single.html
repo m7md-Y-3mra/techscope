@@ -1,0 +1,104 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"techscope-article","style":{"spacing":{"margin":{"top":"0"},"padding":{"top":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group techscope-article" style="margin-top:0;padding-top:var(--wp--preset--spacing--40)">
+
+	<!-- wp:post-terms {"term":"category","className":"techscope-badge","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} /-->
+
+	<!-- wp:post-title {"level":1,"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|20"}}}} /-->
+
+	<!-- wp:post-excerpt {"excerptLength":40,"showMoreOnNewLine":false,"style":{"typography":{"fontSize":"1.25rem","lineHeight":"1.5"},"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} /-->
+
+	<!-- wp:template-part {"slug":"article-meta","tagName":"div"} /-->
+
+	<!-- wp:separator {"className":"is-style-wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|30"}}}} -->
+	<hr class="wp-block-separator has-alpha-channel-opacity is-style-wide" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--30)"/>
+	<!-- /wp:separator -->
+
+	<!-- wp:post-featured-image {"align":"wide","className":"techscope-hero-image","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}}} /-->
+
+	<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+
+	<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--50)">
+		<!-- wp:paragraph {"className":"techscope-eyebrow"} -->
+		<p class="techscope-eyebrow">Filed under</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:post-terms {"term":"post_tag","prefix":"","separator":" · "} /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:separator {"className":"is-style-wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|30"}}}} -->
+	<hr class="wp-block-separator has-alpha-channel-opacity is-style-wide" style="margin-top:var(--wp--preset--spacing--40);margin-bottom:var(--wp--preset--spacing--30)"/>
+	<!-- /wp:separator -->
+
+	<!-- wp:group {"className":"techscope-meta","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+	<div class="wp-block-group techscope-meta">
+		<!-- wp:post-navigation-link {"type":"previous","label":"","showTitle":true,"arrow":"arrow"} /-->
+		<!-- wp:post-navigation-link {"showTitle":true,"arrow":"arrow"} /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignwide" style="margin-top:var(--wp--preset--spacing--60)">
+		<!-- wp:group {"className":"techscope-section-head","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
+		<div class="wp-block-group techscope-section-head" style="margin-bottom:var(--wp--preset--spacing--30)">
+			<!-- wp:heading {"level":2} -->
+			<h2 class="wp-block-heading">More from TechScope</h2>
+			<!-- /wp:heading -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:query {"queryId":21,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":false},"className":"techscope-grid","align":"wide","layout":{"type":"default"}} -->
+		<div class="wp-block-query alignwide techscope-grid">
+			<!-- wp:post-template -->
+				<!-- wp:post-featured-image {"isLink":true,"sizeSlug":"techscope-card"} /-->
+				<!-- wp:post-terms {"term":"category","className":"techscope-badge"} /-->
+				<!-- wp:post-title {"level":3,"isLink":true} /-->
+				<!-- wp:post-date {"format":"j M Y"} /-->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:comments {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
+	<div class="wp-block-comments" style="margin-top:var(--wp--preset--spacing--50)">
+		<!-- wp:comments-title /-->
+		<!-- wp:comment-template -->
+			<!-- wp:columns -->
+			<div class="wp-block-columns">
+				<!-- wp:column {"width":"40px"} -->
+				<div class="wp-block-column" style="flex-basis:40px">
+					<!-- wp:avatar {"size":40} /-->
+				</div>
+				<!-- /wp:column -->
+				<!-- wp:column -->
+				<div class="wp-block-column">
+					<!-- wp:group {"className":"techscope-meta","layout":{"type":"flex","flexWrap":"wrap"}} -->
+					<div class="wp-block-group techscope-meta">
+						<!-- wp:comment-author-name /-->
+						<!-- wp:comment-date /-->
+					</div>
+					<!-- /wp:group -->
+					<!-- wp:comment-content /-->
+					<!-- wp:comment-reply-link /-->
+				</div>
+				<!-- /wp:column -->
+			</div>
+			<!-- /wp:columns -->
+		<!-- /wp:comment-template -->
+		<!-- wp:comments-pagination -->
+			<!-- wp:comments-pagination-previous /-->
+			<!-- wp:comments-pagination-numbers /-->
+			<!-- wp:comments-pagination-next /-->
+		<!-- /wp:comments-pagination -->
+		<!-- wp:post-comments-form /-->
+	</div>
+	<!-- /wp:comments -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
