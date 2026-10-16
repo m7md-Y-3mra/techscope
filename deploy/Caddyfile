@@ -1,0 +1,43 @@
+# Caddy obtains and renews a Let's Encrypt certificate over HTTP-01 on its own.
+# Nothing to run, nothing to cron — it just needs ports 80 and 443 reachable
+# from the internet and the domain pointed at this host.
+
+{
+	email {$TECHSCOPE_TLS_EMAIL}
+}
+
+{$TECHSCOPE_DOMAIN} {
+	encode zstd gzip
+
+	# WordPress trusts X-Forwarded-Proto to know it is behind TLS; see the
+	# WORDPRESS_CONFIG_EXTRA block in docker-compose.prod.yml.
+	reverse_proxy wordpress:80 {
+		header_up X-Forwarded-Proto {scheme}
+		header_up X-Forwarded-For {remote_host}
+		header_up Host {host}
+	}
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		X-Frame-Options "SAMEORIGIN"
+		-Server
+	}
+
+	# Static assets are content-hashed by version query strings, so a long
+	# cache is safe and takes load off PHP.
+	@assets path /wp-content/uploads/* /wp-content/themes/* /wp-includes/*
+	header @assets Cache-Control "public, max-age=2592000"
+
+	# Paths that only ever serve attacks on a site with no user registration.
+	@blocked path /xmlrpc.php /wp-config.php
+	respond @blocked 403
+
+	log {
+		output file /data/access.log {
+			roll_size 10MiB
+			roll_keep 5
+		}
+	}
+}
