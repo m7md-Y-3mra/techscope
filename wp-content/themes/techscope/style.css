@@ -1,0 +1,377 @@
+/*
+Theme Name: TechScope
+Theme URI: https://techscope.local
+Author: TechScope Editorial
+Author URI: https://techscope.local
+Description: A technology magazine block theme — editorial grids, a serif reading column, and a monospaced metadata voice.
+Version: 1.0.0
+Requires at least: 6.7
+Tested up to: 7.1
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: techscope
+Tags: blog, news, magazine, block-patterns, full-site-editing, custom-colors, custom-menu, featured-images, editor-style, wide-blocks
+*/
+
+/* ---------------------------------------------------------------
+   Structural resets WordPress leaves to the theme
+   --------------------------------------------------------------- */
+
+.wp-site-blocks > footer {
+	margin-block-start: 0;
+}
+
+.wp-site-blocks > * {
+	margin-block-start: 0;
+}
+
+/* ---------------------------------------------------------------
+   Masthead
+   --------------------------------------------------------------- */
+
+.techscope-masthead {
+	border-bottom: var(--wp--custom--rule-strong);
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	backdrop-filter: saturate(140%) blur(10px);
+	background-color: color-mix(in srgb, var(--wp--preset--color--paper) 88%, transparent);
+}
+
+.techscope-masthead__rule {
+	border-top: var(--wp--custom--rule);
+}
+
+/* The tagline strip above the nav: small, monospaced, uppercase. */
+.techscope-kicker,
+.techscope-eyebrow {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--x-small);
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--muted);
+}
+
+.techscope-eyebrow--signal {
+	color: var(--wp--preset--color--signal);
+}
+
+/* ---------------------------------------------------------------
+   Lead story
+   --------------------------------------------------------------- */
+
+.techscope-lead .wp-block-post-title {
+	font-size: clamp(2.125rem, 5vw, 3.75rem);
+	letter-spacing: -0.035em;
+}
+
+.techscope-lead .wp-block-post-featured-image img {
+	width: 100%;
+	height: clamp(260px, 42vw, 520px);
+	object-fit: cover;
+}
+
+/* ---------------------------------------------------------------
+   Story grids — a real editorial grid, not stacked columns
+   --------------------------------------------------------------- */
+
+.techscope-grid .wp-block-post-template {
+	display: grid;
+	gap: var(--wp--preset--spacing--40);
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+}
+
+.techscope-grid .wp-block-post-template > li {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	margin: 0;
+}
+
+.techscope-grid .wp-block-post-featured-image img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+}
+
+.techscope-grid .wp-block-post-title {
+	font-size: var(--wp--preset--font-size--large);
+	line-height: 1.2;
+	margin: 0;
+}
+
+.techscope-grid .wp-block-post-excerpt {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--small);
+}
+
+/* A denser, image-free list for sidebars and "more stories" rails. */
+.techscope-list .wp-block-post-template {
+	display: grid;
+	gap: 0;
+	grid-template-columns: 1fr;
+}
+
+.techscope-list .wp-block-post-template > li {
+	padding-block: 1.1rem;
+	border-top: var(--wp--custom--rule);
+	margin: 0;
+}
+
+.techscope-list .wp-block-post-template > li:first-child {
+	border-top: 0;
+	padding-top: 0;
+}
+
+.techscope-list .wp-block-post-title {
+	font-size: var(--wp--preset--font-size--medium);
+	line-height: 1.25;
+	margin: 0 0 0.3rem;
+}
+
+/* Numbered "most read" rail. */
+.techscope-list--ranked .wp-block-post-template {
+	counter-reset: techscope-rank;
+}
+
+.techscope-list--ranked .wp-block-post-template > li {
+	counter-increment: techscope-rank;
+	display: grid;
+	grid-template-columns: 2.5rem 1fr;
+	gap: 0.75rem;
+}
+
+.techscope-list--ranked .wp-block-post-template > li::before {
+	content: counter(techscope-rank, decimal-leading-zero);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--medium);
+	color: var(--wp--preset--color--signal);
+	line-height: 1.3;
+}
+
+/* ---------------------------------------------------------------
+   Article body — a comfortable reading column
+   --------------------------------------------------------------- */
+
+.techscope-article .wp-block-post-content > * {
+	margin-block: 1.4em 0;
+}
+
+.techscope-article .wp-block-post-content > p {
+	font-size: 1.125rem;
+	line-height: 1.72;
+}
+
+.techscope-article .wp-block-post-content > h2,
+.techscope-article .wp-block-post-content > h3 {
+	margin-block-start: 2.2em;
+}
+
+.techscope-article .wp-block-post-content > figure.alignwide img,
+.techscope-article .wp-block-post-content > .alignwide img {
+	width: 100%;
+}
+
+.techscope-article .wp-block-post-content blockquote {
+	border-left: 3px solid var(--wp--preset--color--signal);
+	padding-left: 1.25rem;
+	font-style: italic;
+}
+
+.techscope-hero-image img {
+	width: 100%;
+	height: clamp(240px, 38vw, 480px);
+	object-fit: cover;
+}
+
+/* ---------------------------------------------------------------
+   Meta rows
+   --------------------------------------------------------------- */
+
+.techscope-meta {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--x-small);
+	color: var(--wp--preset--color--muted);
+}
+
+.techscope-meta a {
+	text-decoration: none;
+}
+
+.techscope-meta a:hover {
+	text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------
+   Category badge
+   --------------------------------------------------------------- */
+
+.techscope-badge .wp-block-post-terms__separator {
+	display: none;
+}
+
+.techscope-badge a {
+	display: inline-block;
+	padding: 0.2rem 0.55rem;
+	background-color: var(--wp--preset--color--ink);
+	color: var(--wp--preset--color--paper);
+	text-decoration: none;
+}
+
+.techscope-badge a:hover {
+	background-color: var(--wp--preset--color--signal);
+	color: var(--wp--preset--color--paper);
+}
+
+/* ---------------------------------------------------------------
+   Section headings — rule + label
+   --------------------------------------------------------------- */
+
+.techscope-section-head {
+	display: flex;
+	align-items: baseline;
+	gap: 1rem;
+	border-bottom: var(--wp--custom--rule-strong);
+	padding-bottom: 0.6rem;
+}
+
+.techscope-section-head h2 {
+	font-size: var(--wp--preset--font-size--large);
+	margin: 0;
+	letter-spacing: -0.01em;
+}
+
+.techscope-section-head .techscope-section-head__link {
+	margin-left: auto;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--x-small);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------
+   Search
+   --------------------------------------------------------------- */
+
+.wp-block-search__input {
+	border: var(--wp--custom--rule-strong);
+	border-radius: 2px;
+	padding: 0.7rem 0.9rem;
+	background-color: var(--wp--preset--color--paper);
+	color: var(--wp--preset--color--ink);
+	font-family: var(--wp--preset--font-family--body);
+}
+
+.wp-block-search__input:focus-visible {
+	outline: 2px solid var(--wp--preset--color--electric);
+	outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------- */
+
+.techscope-footer {
+	border-top: var(--wp--custom--rule-strong);
+}
+
+.techscope-footer a {
+	text-decoration: none;
+}
+
+.techscope-footer a:hover {
+	text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------
+   Pagination
+   --------------------------------------------------------------- */
+
+.wp-block-query-pagination {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: var(--wp--preset--font-size--x-small);
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
+.wp-block-query-pagination a {
+	text-decoration: none;
+}
+
+.wp-block-query-pagination-numbers .page-numbers {
+	padding: 0.15rem 0.5rem;
+}
+
+.wp-block-query-pagination-numbers .current {
+	background-color: var(--wp--preset--color--ink);
+	color: var(--wp--preset--color--paper);
+}
+
+/* ---------------------------------------------------------------
+   Equal-height card rows (used by patterns)
+   --------------------------------------------------------------- */
+
+.equal-cards > .wp-block-column {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 0;
+}
+
+.equal-cards > .wp-block-column > .wp-block-group {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.equal-cards .cta-bottom {
+	margin-top: auto;
+	justify-content: center;
+}
+
+/* ---------------------------------------------------------------
+   Focus visibility, link underline offset
+   --------------------------------------------------------------- */
+
+a:focus-visible,
+button:focus-visible,
+.wp-block-button__link:focus-visible {
+	outline: 2px solid var(--wp--preset--color--electric);
+	outline-offset: 3px;
+}
+
+a {
+	text-underline-offset: 0.18em;
+}
+
+/* ---------------------------------------------------------------
+   Responsive adjustments
+   --------------------------------------------------------------- */
+
+@media (max-width: 781px) {
+	.techscope-masthead {
+		position: static;
+	}
+
+	.techscope-section-head {
+		flex-wrap: wrap;
+	}
+
+	.techscope-section-head .techscope-section-head__link {
+		margin-left: 0;
+	}
+
+	.techscope-grid .wp-block-post-featured-image img {
+		height: 220px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.001ms !important;
+		transition-duration: 0.001ms !important;
+	}
+}
