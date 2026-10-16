@@ -1,0 +1,41 @@
+# --- secrets ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# --- WordPress core & runtime (lives in named volumes, not git) ---
+wp-admin/
+wp-includes/
+wp-config.php
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/cache/
+wp-content/languages/
+wp-content/plugins/*
+!wp-content/plugins/techscope-core/
+wp-content/themes/*
+!wp-content/themes/techscope/
+*.log
+debug.log
+
+# --- build / deps ---
+node_modules/
+vendor/
+build/
+dist/
+*.zip
+*.tar.gz
+
+# --- editor / OS ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# --- local scratch ---
+/tmp/
+/backups/
