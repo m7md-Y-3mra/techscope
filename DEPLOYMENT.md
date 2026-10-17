@@ -192,3 +192,51 @@ an upload through the admin screen.
 - **Caddy stores certificates in the `caddy_data` volume.** Do not delete that
   volume casually; re-issuing repeatedly runs into Let's Encrypt rate limits.
 - **`docker compose down -v` destroys the database.** Use `down` without `-v`.
+
+## alwaysdata (free tier, no credit card)
+
+Live: https://techscope.alwaysdata.net
+
+Chosen over Oracle Always Free because Oracle's signup declines many cards.
+alwaysdata's free pack (1 GB disk, 256 MB RAM, 0.25 CPU) needs no card and,
+unlike most free PHP hosts, gives SSH — so WP-CLI and the seed tooling work.
+
+No Docker there; WordPress runs native on their PHP 8.4. The compose/Caddy
+stack in this repo stays the path for a VPS.
+
+### Layout
+
+| Thing | Value |
+|---|---|
+| SSH | `techscope@ssh-techscope.alwaysdata.net` (key auth) |
+| Docroot | `~/www` |
+| DB | `techscope_wp` on `mysql-techscope.alwaysdata.net`, user `techscope` |
+| WP-CLI | `~/bin/wp` |
+
+### Deploying
+
+The DB password lives in `~/.dbpass` on the server (mode 600), never in argv
+or in the repo. Put it there from a local shell:
+
+    printf '%s' 'THE_PASSWORD' | ssh techscope@ssh-techscope.alwaysdata.net 'umask 077; cat > ~/.dbpass'
+
+Then push code and run the installer:
+
+    tar -czf - -C wp-content/themes techscope | ssh techscope@ssh-techscope.alwaysdata.net 'tar -xzf - -C ~/www/wp-content/themes'
+    scp deploy/alwaysdata-install.sh techscope@ssh-techscope.alwaysdata.net:~/install.sh
+    ssh techscope@ssh-techscope.alwaysdata.net 'bash ~/install.sh'
+
+The script is re-runnable: it only writes `wp-config.php` and imports the dump
+when they are absent, so a second run just re-syncs URLs and re-activates.
+
+### Gotchas hit during the first deploy
+
+- `wp db import` needs a `mariadb` client binary alwaysdata does not ship.
+  The installer pipes into `mysql` instead.
+- `wp rewrite flush` cannot write `.htaccess` here. It is committed by hand;
+  without it every permalink 404s while the homepage still returns 200.
+- TLS terminates upstream, so the HTTPS redirect tests `X-Forwarded-Proto`
+  rather than `%{HTTPS}`.
+- `--skip-content` leaves no fallback theme. `twentytwentyfive` is installed
+  but not activated, purely so a fatal in `techscope` cannot lock you out
+  of `/wp-admin`.
